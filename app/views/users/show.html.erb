@@ -1,0 +1,17 @@
+<h1>Hi, I'm <%= @user.full_name %></h1>
+
+<p><%= @user.created_at.strftime("Member since %B %Y") %></p>
+<p><%= @user.bio %><br>
+
+<% if current_user %>
+  <h3><%= link_to "Add new work", new_work_path %></h3>
+<% end %>
+
+<h2>Works</h2>
+
+<% @user.works.all.each do |work| %>
+  <p><strong><%= work.title %></strong> / <%= work.genre.name %></p>
+  <p><%= work.description %></p>
+  <p><%= link_to "View this work", work_path(work) %>
+<% end %>
+

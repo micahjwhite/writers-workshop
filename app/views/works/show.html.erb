@@ -1,0 +1,10 @@
+<h1><%= @work.title %></h1>
+<h4>By <%=@work.user.full_name %></h4>
+<h4><%= @work.genre.name %></h4>
+<p><strong>Description:</strong> <%= @work.description %></p>
+<p><%= @work.content %></p>
+
+<% if current_user == @work.user %>
+  <%= button_to "Edit This Work", edit_work_path %><br>
+  <%= button_to "Detete This Work", work_path, method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
+<% end %>

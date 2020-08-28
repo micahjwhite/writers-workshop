@@ -1,0 +1,10 @@
+<h1>Works</h1>
+
+<% @works.all.each do |work| %>
+  <h2><strong><%= work.title %></strong></h2>
+  <h3><%= work.description %></h3>
+  <p><%= truncate(work.content, :limit => 50) %><br>
+  <p>Written by: <%= link_to "#{work.user.full_name}", user_path(work.user) %><br>
+  <p>Genre: <%= link_to "#{work.genre.name}", genre_path(work.genre) %><br>
+  <p><%= link_to "View this work", work_path(work) %><br><br>
+<% end %>

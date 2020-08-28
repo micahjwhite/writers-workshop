@@ -1,0 +1,14 @@
+<h1>Edit This Work</h1>
+
+<%= form_for @work do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br><br>
+  <%= f.label :description %>
+  <%= f.text_area :description %><br><br>
+  <%= f.label :content %>
+  <%= f.text_area :content %><br><br>
+  <%= f.label :genre %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %><br><br>
+
+  <%= f.submit "Edit Work" %>
+<% end %>
